@@ -1,0 +1,297 @@
+@import 'normalize';
+@import 'variables';
+@import 'mixins';
+* {
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, $baseBg1 0%, $baseBg2 100%);
+    color: $baseFont;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    line-height: 1.4;
+    &.animated {
+        overflow: hidden;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+h1,
+h2 {
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+    &.results-head {
+        font-size: 3.5rem;
+    }
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+p {
+    margin: 1rem 0;
+}
+
+.lead {
+    margin-bottom: 4rem;
+    font-size: 1.2rem;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.showing {
+    opacity: 1;
+}
+
+.hiding {
+    opacity: 0;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+    padding: 15px;
+}
+
+.content {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    @include breakpoint(md) {
+        width: 60%;
+    }
+    @include breakpoint(sm) {
+        width: 80%;
+    }
+    @include breakpoint(xs) {
+        width: 100%;
+    }
+}
+
+.form-all {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    &.form-center {
+        justify-content: center;
+    }
+    @include breakpoint(xs) {
+        flex-flow: column wrap;
+    }
+}
+
+.input-group {
+    flex: 1 100%;
+    position: relative;
+    margin: 0 15px 40px;
+    &:first-child {
+        margin-left: 0;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+    @include breakpoint(xs) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.input-group-append {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    line-height: 1.5;
+}
+
+.input-label {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: bold;
+    color: rgba($baseFont, 0.6);
+    text-transform: uppercase;
+    &.moved {
+        font-size: 0.9rem;
+        top: -18px;
+    }
+}
+
+.input-control {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid #fff;
+    color: $baseFont;
+    font-size: 1.2rem;
+    padding: 8px 40px 8px 0;
+    line-height: 1.5;
+    &:focus {
+        outline: none;
+    }
+    &:hover,
+    &:focus {
+        border-color: rgba($baseFont, 0.7);
+    }
+}
+
+.btn {
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    height: 50px;
+    min-width: 220px;
+    padding: 0 30px;
+    border-radius: 5px;
+    margin: 0 15px;
+    cursor: pointer;
+    &.btn-primary {
+        background-color: $baseFont;
+        color: $baseBg1;
+        &:hover,
+        &:focus {
+            outline: none;
+            background-color: rgba($baseFont, 0.7);
+        }
+    }
+    &.btn-secondary {
+        background-color: transparent;
+        color: $baseFont;
+        border: 1px solid $baseFont;
+        &:hover,
+        &:focus {
+            outline: none;
+            background-color: rgba($baseFont, 0.3);
+        }
+    }
+    @include breakpoint(xs) {
+        margin: 0 0 30px 0;
+    }
+}
+
+#modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: linear-gradient(180deg, $baseBg1 0%, $baseBg2 100%);
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    &.success {
+        background: linear-gradient(180deg, $successBg1 0%, $successBg2 100%);
+        .btn-primary {
+            color: $successBg1;
+        }
+    }
+    &.warning {
+        background: linear-gradient(180deg, $warningBg1 0%, $warningBg2 100%);
+        .btn-primary {
+            color: $warningBg1;
+        }
+    }
+    &.alert {
+        background: linear-gradient(180deg, $alertBg1 0%, $alertBg2 100%);
+        .btn-primary {
+            color: $alertBg1;
+        }
+    }
+}
+
+.results-desc {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+.btn-close {
+    margin-top: 25px;
+}
+
+/* animate.css -http://daneden.me/animate
+ * Version - 3.6.0
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2018 Daniel Eden
+ */
+
+@-webkit-keyframes slideInLeft {
+    from {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slideInLeft {
+    -webkit-animation-name: slideInLeft;
+    animation-name: slideInLeft;
+}
+
+@-webkit-keyframes slideOutRight {
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        visibility: hidden;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        visibility: hidden;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+.slideOutRight {
+    -webkit-animation-name: slideOutRight;
+    animation-name: slideOutRight;
+}

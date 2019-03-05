@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>BMI Calculator</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="dist/css/style.min.css" />
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="content">
+                <h1 class="text-center">BMI calculator</h1>
+                <p class="lead text-center">Check your weight!</p>
+                <form action="" method="post" class="form-all" id="calculator">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label class="input-label" for="weight"
+                                >Your weight:</label
+                            >
+                            <input
+                                type="number"
+                                name="weight"
+                                id="weight"
+                                class="input-control"
+                            />
+                            <div class="input-group-append">kg</div>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label" for="height"
+                                >Your height:</label
+                            >
+                            <input
+                                type="number"
+                                name="height"
+                                id="height"
+                                class="input-control"
+                            />
+                            <div class="input-group-append">cm</div>
+                        </div>
+                    </div>
+                    <div class="form-row form-center">
+                        <button type="reset" class="btn btn-secondary">
+                            Reset form
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Calculate BMI
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="hidden" id="modal">
+            <div class="wrapper">
+                <div id="result" class="content">
+                    <h1 id="result-head" class="results-head"></h1>
+                    <p id="result-desc" class="results-desc"></p>
+                    <button id="btn-close" class="btn btn-primary btn-close">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script src="dist/js/custom.min.js"></script>
+    </body>
+</html>
