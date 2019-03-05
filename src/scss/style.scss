@@ -1,6 +1,6 @@
-@import 'normalize';
-@import 'variables';
-@import 'mixins';
+@import 'components/normalize';
+@import 'components/variables';
+@import 'components/mixins';
 * {
     transition: all 0.2s ease-in-out;
     box-sizing: border-box;
